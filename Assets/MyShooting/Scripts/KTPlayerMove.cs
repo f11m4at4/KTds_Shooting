@@ -23,7 +23,9 @@ public class KTPlayerMove : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         // 2. 방향이 필요하다.
-        Vector3 v = Vector3.right * x * speed;
+        Vector3 v = Vector3.right * x + Vector3.up * y;
+        v.Normalize();
+        v *= speed;
 
         // 3. 이동하고 싶다.
         Vector3 P0 = transform.position;
