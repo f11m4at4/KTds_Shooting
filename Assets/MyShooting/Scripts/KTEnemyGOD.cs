@@ -20,6 +20,16 @@ public class KTEnemyGOD : MonoBehaviour
     void Update()
     {
         // 일정시간에 한번씩 적을 만들고 싶다.
-        
+        // 1. 시간이 흘렀으니까
+        currentTime += Time.deltaTime;
+        // 2. 생성시간이 됐으니까
+        if (currentTime > createTime)
+        {
+            // 3. 적을 만들고 싶다.
+            GameObject enemy = Instantiate(enemyFactory);
+            // 4. 적을 배치하고 싶다.
+            enemy.transform.position = transform.position;
+            currentTime = 0;
+        }
     }
 }
