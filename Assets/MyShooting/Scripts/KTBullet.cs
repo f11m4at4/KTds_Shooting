@@ -18,6 +18,6 @@ public class KTBullet : MonoBehaviour
     {
         // 계속 위로 이동하고 싶다.
         // P = P0 + vt
-        transform.position += Vector3.up * speed * Time.deltaTime;
+        transform.position += transform.up * speed * Time.deltaTime;
     }
 }

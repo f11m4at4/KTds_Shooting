@@ -28,9 +28,12 @@ public class KTPlayerFire : MonoBehaviour
             // 3. 총알을 발사하고 싶다. (배치한다.)
             // 총구의 위치에 배치
             bullet1.transform.position = firePositionLeft.position;
+            // 총알의 방향을 설정한다.
+            bullet1.transform.up = firePositionLeft.up;
 
             GameObject bullet2 = Instantiate(bulletFactory);
             bullet2.transform.position = firePositionRight.position;
+            bullet2.transform.up = firePositionRight.up;
         }
     }
 }
