@@ -49,10 +49,27 @@ public class KTEnemy : MonoBehaviour
     // 죽을 때 폭발 효과를 재생하고 싶다.
     private void OnCollisionEnter(Collision other)
     {
+        // 죽을 때 점수 올려주자.
+        KTScoreManager.Instance.Score++;
+
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;
 
-        Destroy(other.gameObject);
+        // 부딪힌 대상이 총알이라면 탄창에 넣어주자
+        // 이름, tag, layer
+        if (other.gameObject.name.Contains("Bullet"))
+        {
+            //탄창에 넣어주자
+            // 1. Player 가 필요하다.
+            // 2. Playerfire 컴포넌트가 필요하다.
+            // 3. 탄창에 넣어주기
+            other.gameObject.SetActive(false);
+            KTPlayerFire.bulletPool.Add(other.gameObject);
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
         Destroy(gameObject);
     }
 }

@@ -32,6 +32,10 @@ public class KTPlayerMove : MonoBehaviour
         Vector3 vt = v * Time.deltaTime;
         Vector3 P = P0 + vt;
 
+        // 만약 x 값이 -5 보다 작거나 5 보 크다면
+        // -5 로, 5
+        P.x = Mathf.Clamp(P.x, -5, 5);
+
         transform.position = P;
     }
 }
