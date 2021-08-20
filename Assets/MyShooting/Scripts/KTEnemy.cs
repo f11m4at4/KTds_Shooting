@@ -54,7 +54,7 @@ public class KTEnemy : MonoBehaviour
 
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;
-
+        
         // 부딪힌 대상이 총알이라면 탄창에 넣어주자
         // 이름, tag, layer
         if (other.gameObject.name.Contains("Bullet"))

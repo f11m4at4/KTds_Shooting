@@ -32,6 +32,9 @@ public class KTScoreManager : MonoBehaviour
             {
                 topScore = curScore;
                 topScoreUI.text = "Top Score : " + topScore;
+
+                // 데이터를 저장하자
+                PlayerPrefs.SetInt("topScore", topScore);
             }
         }
     }
@@ -47,7 +50,9 @@ public class KTScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 데이터 불러오기
+        topScore = PlayerPrefs.GetInt("topScore", 0);
+        topScoreUI.text = "Top Score : " + topScore;
     }
 
     public void SetScore(int value)
